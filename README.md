@@ -82,7 +82,7 @@ developing your own process.
     his indicates that the server's endpoint is not responding with json data.
 
     To resolve this, we add
-    ```render json: toy, status: :created``` to format the response into json format
+    ```render json: toy, status: :created``` to the controller's **update** action to format the response into json format
 
 - Donate a toy to Goodwill (and delete it from our database)
 
