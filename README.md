@@ -63,11 +63,32 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+      Tried submitting the form
+      ```
+      NameError (uninitialized constant ToysController::Toys
+
+        toy = Toys.create(toy_params)
+              ^^^^):
+      ````                            
+    This would probably be a typo. We use the model class name to perform the business logic.
 
 - Update the number of likes for a toy
 
   - How I debugged:
+    The browser's console produces a syntax error encountered when trying to resolve the promise into json format when the conversion is not fesible.
+      ```
+      Uncaught (in promise) SyntaxError: Unexpected end of JSON input
+      ```
+    his indicates that the server's endpoint is not responding with json data.
+
+    To resolve this, we add
+    ```render json: toy, status: :created``` to format the response into json format
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+    * Server-Side Error
+    ```ActionController::RoutingError (No route matches [GET] "/movies"):```
+    * Front-End Error
+    ```404 Not Found Error```
+    The above errors together suggest that the route is not properly configured.
